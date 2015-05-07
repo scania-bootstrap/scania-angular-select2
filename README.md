@@ -5,7 +5,7 @@ Scania angular-select2 directive gives you a customizable select box with suppor
 native HTML select and option tags, infinite scrolling, and many other highly used options. See select2 API documentationfor the list of options
 
 
-###<a href="http://plnkr.co/edit/L3YYgq7TEM2mBG9s9we1?p=preview">Demo</a>
+###<a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9we1/preview">Demo</a>
 
 # Getting Started
 
