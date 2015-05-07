@@ -4,9 +4,8 @@ AngularJS directive for Select2
 Scania angular-select2 directive gives you a customizable select box with support for searching, tagging, ng-model, ng-repeat,
 native HTML select and option tags, infinite scrolling, and many other highly used options. See select2 API documentationfor the list of options
 
-#Demo
 
-###<a href="http://plnkr.co/edit/L3YYgq7TEM2mBG9s9we1?p=preview">Checkout a working example on Plunker</a>
+###<a href="http://plnkr.co/edit/L3YYgq7TEM2mBG9s9we1?p=preview">Demo</a>
 
 # Getting Started
 
