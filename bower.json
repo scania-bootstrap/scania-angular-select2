@@ -1,0 +1,43 @@
+{
+  "name": "scania-angular-select2",
+  "version": "1.0.1",
+  "description": "AngularJS directive for Select2. A selection box with support for searching, tagging, ng-model, ng-repeat, native HTML select and option tags",
+  "main": [
+    "sc-select2.directive.js",
+    "sc-select2.directive.less"
+  ],
+  "keywords": [
+    "scania-angular-select2",
+    "sc-select2",
+    "angular-select2",
+    "select2",
+    "angular-select"
+  ],
+  "authors": [
+    "Scania",
+    "Mohammed Ayowa <mohammed.ayowa@scania.com> (mohammed.ayowa@scania.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scania-bootstrap/scania-angular-select2.git"
+  },
+  "dependencies": {
+    "select2": "3.5.2"
+  },
+  "devDependencies": {
+    "select2": "3.5.2",
+    "underscore": "~1.7.0"
+  },
+  "resolutions": {
+    "select2": "3.5.2"
+  },
+  "homepage": "https://github.com/scania-bootstrap/scania-angular-select2"
+}
