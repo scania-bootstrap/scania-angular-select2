@@ -1,5 +1,5 @@
 # scania-angular-select2 [![Join the chat at https://gitter.im/scania-bootstrap/scania-angular-select2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/scania-bootstrap/scania-angular-select2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-AngularJS directive for Select2
+AngularJS directive for <a href="https://github.com/ivaynberg/select2">Select2</a><br/>
 
 Scania angular-select2 directive gives you a customizable select box with support for searching, tagging, ng-model, ng-repeat,
 native HTML select and option tags, infinite scrolling, and many other highly used options. See select2 API documentationfor the list of options
