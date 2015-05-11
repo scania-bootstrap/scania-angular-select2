@@ -39,7 +39,13 @@ The following attributes are required on a select tag <br/>
   If you are using bootstrap you will need the less file so go ahead and link sc-select2.directive.less together select2.css
 
     <link rel="stylesheet" type="bower_components/select2/select2.css"/><br/>
-    <link rel="stylesheet" type="bower_components/scania-angular-select2/sc-select2.directive.less"/>
+    <link rel="stylesheet" type="bower_components/scania-angular-select2/less/sc-select2.directive.less"/>
+
+ Next inject the directive into your app
+
+    angular.module('yourapp', ['scania.directives']);
+
+A complete example can be found <a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9we1/preview">here</a>
 
 # Examples
 
