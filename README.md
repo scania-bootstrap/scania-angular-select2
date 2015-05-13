@@ -41,6 +41,12 @@ The following attributes are required on a select tag <br/>
     <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
     <link rel="stylesheet" href="bower_components/scania-angular-select2/less/sc-select2.directive.less"/>
 
+ Don't forget to copy the following images to your app root.
+
+    select2.png
+    select2x2.png
+    select2-spinner.gif
+
  Next inject the directive into your app
 
     angular.module('yourapp', ['scania.directives']);
