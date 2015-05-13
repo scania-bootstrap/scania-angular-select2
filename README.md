@@ -36,7 +36,7 @@ The following attributes are required on a select tag <br/>
     <script src="bower_components/select2/select2.js"></script>
     <script src="bower_components/scania-angular-select2/src/sc-select2.directive.js"></script>
 
-  If you are using bootstrap you will need the less file so go ahead and link sc-select2.directive.less together select2.css
+  If you are using bootstrap you will need the less file so go ahead and link sc-select2.directive.lenavss together select2.css
 
     <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
     <link rel="stylesheet" href="bower_components/scania-angular-select2/less/sc-select2.directive.less"/>
@@ -119,11 +119,12 @@ id="my-single2"<br/>
 class="sc-select"<br/>
 sc-select2 (scania angular-select2 directive)
 
-## Multiselect with ng-change event listener
+## Multiselect with ng-change event listener and default selection
 
-     <select ng-options="item.name for item in vm.items"
+     <select ng-options="item as item.name for item in vm.items track by item.id"
          ng-change="vm.selctionChanged()"
          ng-model="vm.selectedItems"
+          data-value="id"
          id="my-multi3" class="sc-multiselect" style="width: 200px"
          multiple="multiple"
          data-placeholder="Select Group"
@@ -136,7 +137,8 @@ sc-select2 (scania angular-select2 directive)
 
 ng-options<br/>
 ng-change<br/>
-ng-model<br/>
+ng-model (the selected list)<br/>
+data-value (the value specified in ng-options 'track by' in this case data-value="id")<br/>
 id="my-multi3"<br/>
 class="sc-multiselect"<br/>
 multiple="multiple"<br/>
@@ -168,15 +170,15 @@ class="sc-multiselect"<br/>
 multiple="multiple"<br/>
 sc-select2 (scania angular-select2 directive)
 
-## A single select with ng-selected attribute
+## A single select with default item selected
 
-     <select id="my-single3" class="sc-select"
+     <select ng-options="item as item.name for item in vm.items track by item.id"
+          id="my-single3" class="sc-select" style="width: 200px"
           data-placeholder="Select Group"
+          ng-model="vm.selectedItem"
+          data-value="id"
           sc-select2>
-          <option ng-bind="options.placeholder"></option>
-          <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
-                {{item.name}}
-          </option>
+
      </select>
 
 ### Require attributes
@@ -198,6 +200,9 @@ sc-select2 (scania angular-select2 directive)
 
 ### Require attributes
 
+ng-options<br/>
+ng-model (the selected item)<br/>
+data-value (the value specified in ng-options 'track by'  in this case data-value="id") <br/>
  id="my-single4"<br/>
 class="sc-select"<br/>
 sc-select2 (scania angular-select2 directive)

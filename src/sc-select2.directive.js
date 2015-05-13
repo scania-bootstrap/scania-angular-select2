@@ -11,9 +11,12 @@
  */
 (function () {
     'use strict';
-    function scSelect2($compile) {
+    function scSelect2($compile, $timeout) {
         return {
             restrict: 'A',
+            scope: {
+                ngModel: '='
+            },
             link: function ($scope, element, $attr) {
                 if($attr.language){
                     var domElem = '<script src="/bower_components/select2/select2_locale_' + $attr.language + '.js" async defer></script>';
@@ -23,10 +26,22 @@
                     return !startsWith(key, '$');
                 });
                 if ($attr.multiple) {
-                    $('select.sc-multiselect[id="' + $attr.id + '"]').select2(options);
+                    var multiselect =  $('select.sc-multiselect[id="' + $attr.id + '"]');
+                    multiselect.select2(options);
+                    if($scope.ngModel) {
+                        $timeout(function(){
+                            multiselect.val(_.pluck($scope.ngModel,  options.value)).trigger('change');
+                        });
+                    }
                     options.placeholderOption = '';
                 } else {
-                    $('select.sc-select[id="' + $attr.id + '"]').select2(options);
+                    var select =  $('select.sc-select[id="' + $attr.id + '"]');
+                    select.select2(options);
+                    if($scope.ngModel) {
+                        $timeout(function(){
+                            select.val($scope.ngModel[options.value]).trigger('change');
+                        });
+                    }
                     options.placeholderOption = 'first';
                 }
             }
