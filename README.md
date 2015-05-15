@@ -216,7 +216,7 @@ sc-select2 (scania angular-select2 directive)
 ## Single select with a display template and a result template
 
     <select id="my-single5" class="sc-select" style="width: 200px"
-        data-placeholder="With templateSelection"
+        data-placeholder="With templates"
         data-template-selection="vm.displayTemplate"
         data-template-result="vm.resultTemplate"
         sc-select2>
