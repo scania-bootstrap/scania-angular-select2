@@ -91,11 +91,15 @@ class="sc-multiselect"<br/>
 multiple="multiple"<br/>
 sc-select2 (scania angular-select2 directive)
 
-## A single select with attribute data-allow-clear="true"
+## A single select with attributes
+
+ data-allow-clear="true"
+ data-minimum-results-for-search="10" (the search is shown for data sets with size > 9)
 
     <select id="my-single1" class="sc-select" style="width: 200px"
         data-placeholder="Select Group"
         data-allow-clear="true"
+         data-minimum-results-for-search="10"
         sc-select2>
         <option ng-bind="options.placeholder"></option>
         <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
@@ -230,6 +234,64 @@ sc-select2 (scania angular-select2 directive)
 
  data-template-selection (the formater function)<br/>
  data-template-result (the formater function)<br/>
+ id="my-single2"<br/>
+ class="sc-select"<br/>
+ sc-select2 (scania angular-select2 directive)
+
+ ##  Single select with attribute data-minimum-results-for-search=10
+
+    <select id="my-single6" class="sc-select" style="width: 200px"
+        data-placeholder="With min length"
+        data-minimum-results-for-search="10"
+        sc-select2>
+        <option ng-bind="options.placeholder"></option>
+        <option ng-repeat="item in vm.items" ng-model="item">
+               {{item.name}}
+        </option>
+    </select>
+
+###  Require attributes
+
+data-minimum-results-for-search (the search is shown for data sets with size greather than 9).<br/>
+id="my-single2"<br/>
+class="sc-select"<br/>
+ sc-select2 (scania angular-select2 directive)
+
+
+##   Single select with a custom css class
+
+    <select id="my-single6" class="sc-select" style="width: 200px"
+        data-placeholder="With custom container css"
+        data-container-css-class="container-css-class"
+        sc-select2>
+        <option ng-bind="options.placeholder"></option>
+        <option ng-repeat="item in vm.items" ng-model="item">
+               {{item.name}}
+        </option>
+    </select>
+
+###  Require attributes
+
+data-container-css-class (custom css class).<br/>
+id="my-single2"<br/>
+class="sc-select"<br/>
+ sc-select2 (scania angular-select2 directive)
+
+ ##  Single select with a custom css class
+
+     <select id="my-single6" class="sc-select" style="width: 200px"
+          data-placeholder="With  custom dropdown css"
+          data-dropdown-css-class="dropdown-css-class"
+         sc-select2>
+         <option ng-bind="options.placeholder"></option>
+         <option ng-repeat="item in vm.items" ng-model="item">
+                {{item.name}}
+         </option>
+     </select>
+
+ ###  Require attributes
+
+ data-dropdown-css-class (custom css class).<br/>
  id="my-single2"<br/>
  class="sc-select"<br/>
  sc-select2 (scania angular-select2 directive)
