@@ -15,7 +15,9 @@
         return {
             restrict: 'A',
             scope: {
-                ngModel: '='
+                ngModel: '=',
+                templateSelection: '=',
+                templateResult: '='
             },
             link: function ($scope, element, $attr) {
                 if($attr.language){
@@ -25,6 +27,9 @@
                 var options = _.pick($(element).data(), function (value, key) {
                     return !startsWith(key, '$');
                 });
+                options.formatSelection = $scope.templateSelection || $.fn.select2.defaults.formatSelection;
+                options.formatResult = $scope.templateResult || $.fn.select2.defaults.formatResult;
+
                 if ($attr.multiple) {
                     var multiselect =  $('select.sc-multiselect[id="' + $attr.id + '"]');
                     multiselect.select2(options);

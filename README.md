@@ -212,3 +212,24 @@ data-value (the value specified in ng-options 'track by'  in this case data-valu
  id="my-single4"<br/>
 class="sc-select"<br/>
 sc-select2 (scania angular-select2 directive)
+
+## Single select with a display template and a result template
+
+    <select id="my-single5" class="sc-select" style="width: 200px"
+        data-placeholder="With templateSelection"
+        data-template-selection="vm.displayTemplate"
+        data-template-result="vm.resultTemplate"
+        sc-select2>
+        <option ng-bind="options.placeholder"></option>
+        <option ng-repeat="item in vm.items" ng-model="item">
+            {{item.name}}
+        </option>
+    </select>
+
+ ###  Require attributes
+
+ data-template-selection (the formater function)<br/>
+ data-template-result (the formater function)<br/>
+ id="my-single2"<br/>
+ class="sc-select"<br/>
+ sc-select2 (scania angular-select2 directive)
