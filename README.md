@@ -230,7 +230,7 @@ sc-select2 (scania angular-select2 directive)
         </option>
     </select>
 
- ###  Require attributes
+###  Require attributes
 
  data-template-selection (the formater function)<br/>
  data-template-result (the formater function)<br/>
@@ -238,7 +238,7 @@ sc-select2 (scania angular-select2 directive)
  class="sc-select"<br/>
  sc-select2 (scania angular-select2 directive)
 
- ##  Single select with attribute data-minimum-results-for-search=10
+##  Single select with attribute data-minimum-results-for-search=10
 
     <select id="my-single6" class="sc-select" style="width: 200px"
         data-placeholder="With min length"
