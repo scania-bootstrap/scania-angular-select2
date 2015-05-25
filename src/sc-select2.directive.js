@@ -20,7 +20,7 @@
                 templateResult: '='
             },
             link: function ($scope, element, $attr) {
-                if($attr.language){
+                if ($attr.language) {
                     var domElem = '<script src="/bower_components/select2/select2_locale_' + $attr.language + '.js" async defer></script>';
                     $(element).append($compile(domElem)($scope));
                 }
@@ -31,22 +31,39 @@
                 options.formatResult = $scope.templateResult || $.fn.select2.defaults.formatResult;
 
                 if ($attr.multiple) {
-                    var multiselect =  $('select.sc-multiselect[id="' + $attr.id + '"]');
+                    var multiselect = $('select.sc-multiselect[id="' + $attr.id + '"]');
                     multiselect.select2(options);
-                    if($scope.ngModel) {
-                        $timeout(function(){
-                            multiselect.val(_.pluck($scope.ngModel,  options.value)).trigger('change');
-                        });
-                    }
+                    $timeout(function () {
+                        var selectedItems = $scope.ngModel;
+                        if (selectedItems) {
+                            if(selectedItems.then && typeof selectedItems.then === 'function'){
+                                selectedItems.then(function (response) {
+                                    multiselect.val(_.pluck(response.data, options.value)).trigger('change');
+                                });
+                            }
+                            if(_.isArray(selectedItems)){
+                                multiselect.val(_.pluck(selectedItems, options.value)).trigger('change');
+                            }
+
+                        }
+                    });
                     options.placeholderOption = '';
                 } else {
-                    var select =  $('select.sc-select[id="' + $attr.id + '"]');
+                    var select = $('select.sc-select[id="' + $attr.id + '"]');
                     select.select2(options);
-                    if($scope.ngModel) {
-                        $timeout(function(){
-                            select.val($scope.ngModel[options.value]).trigger('change');
-                        });
-                    }
+                    $timeout(function () {
+                        var selectedItem = $scope.ngModel;
+                        if (selectedItem) {
+                            if(selectedItem.then && typeof selectedItem.then === 'function'){
+                                selectedItem.then(function (response) {
+                                    select.val(response.data[options.value]).trigger('change');
+                                });
+                            }
+                            if(_.isObject(selectedItem)){
+                                select.val(selectedItem[options.value]).trigger('change');
+                            }
+                        }
+                    });
                     options.placeholderOption = 'first';
                 }
             }
