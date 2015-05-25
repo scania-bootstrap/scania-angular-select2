@@ -277,7 +277,7 @@ id="my-single2"<br/>
 class="sc-select"<br/>
  sc-select2 (scania angular-select2 directive)
 
- ##  Single select with a custom css class
+## Single select with a custom css class
 
      <select id="my-single6" class="sc-select" style="width: 200px"
           data-placeholder="With  custom dropdown css"
@@ -289,7 +289,7 @@ class="sc-select"<br/>
          </option>
      </select>
 
- ###  Require attributes
+###  Require attributes
 
  data-dropdown-css-class (custom css class).<br/>
  id="my-single2"<br/>
