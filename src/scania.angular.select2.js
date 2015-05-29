@@ -5,7 +5,7 @@
  *
  * @ngdoc directive
  * @name scSelect2
- * @module scania.directives
+ * @module scania.angular.select2
  *
  * @description AngularJS directive for Select2
  */
@@ -76,9 +76,9 @@
 
     /**
      * @ngdoc module
-     * @name scania.directives
+     * @name scania.angular.select2
      *
      * @description AngularJS directive for Select2
      */
-    angular.module('scania.directives', []).directive('scSelect2', scSelect2);
+    angular.module('scania.angular.select2', []).directive('scSelect2', scSelect2);
 })();

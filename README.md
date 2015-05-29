@@ -1,7 +1,7 @@
 # scania-angular-select2 [![Join the chat at https://gitter.im/scania-bootstrap/scania-angular-select2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/scania-bootstrap/scania-angular-select2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 AngularJS directive for <a href="https://github.com/ivaynberg/select2">Select2</a><br/>
 
-Scania angular-select2 directive gives you a customizable select box with support for searching, tagging, ng-model, ng-repeat,
+Scania-angular-select2 directive gives you a customizable select box with support for searching, tagging, ng-model, ng-repeat,
 native HTML select and option tags, infinite scrolling, and many other highly used options. See select2 API documentationfor the list of options
 
 
@@ -27,19 +27,19 @@ The following attributes are required on a select tag <br/>
 
            id="your component id"<br/>
            class="sc-multiselect"<br/>
-           sc-select2 (scania angular-select2 directive)
+           sc-select2 (scania-angular-select2 directive)
 
   Add the following script to your index.html file and you are good to go :<br/>
 
 <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
 <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/select2/select2.js"></script>
-    <script src="bower_components/scania-angular-select2/src/sc-select2.directive.js"></script>
+    <script src="bower_components/scania-angular-select2/src/scania.angular.select2.js"></script>
 
-  If you are using bootstrap you will need the less file so go ahead and link sc-select2.directive.lenavss together select2.css
+  If you are using bootstrap you will need the less file so go ahead and link scania.angular.select2.less together with select2.css
 
     <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
-    <link rel="stylesheet" href="bower_components/scania-angular-select2/less/sc-select2.directive.less"/>
+    <link rel="stylesheet" href="bower_components/scania-angular-select2/less/scania.angular.select2.less"/>
 
  Don't forget to copy the following images to your app root.
 
@@ -49,7 +49,7 @@ The following attributes are required on a select tag <br/>
 
  Next inject the directive into your app
 
-    angular.module('yourapp', ['scania.directives']);
+    angular.module('yourapp', ['scania.angular.select2']);
 
 A complete example can be found <a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9we1/preview">here</a>
 
@@ -70,7 +70,7 @@ A complete example can be found <a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9
 id="my-multi1"<br/>
 class="sc-multiselect"<br/>
 multiple="multiple"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A simple multiselect with attribute data-close-on-select="false".
 
@@ -89,7 +89,7 @@ sc-select2 (scania angular-select2 directive)
 id="my-multi2"<br/>
 class="sc-multiselect"<br/>
 multiple="multiple"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A single select with attributes
 
@@ -112,7 +112,7 @@ sc-select2 (scania angular-select2 directive)
 
 id="my-single1"<br/>
 class="sc-select"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A single select with disabled option
 
@@ -127,7 +127,7 @@ sc-select2 (scania angular-select2 directive)
 
 id="my-single2"<br/>
 class="sc-select"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## Multiselect with ng-change event listener and default selection
 
@@ -152,7 +152,7 @@ data-value (the value specified in ng-options 'track by' in this case data-value
 id="my-multi3"<br/>
 class="sc-multiselect"<br/>
 multiple="multiple"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A simple multiselect Whit attributes
 
@@ -178,7 +178,7 @@ data-search-input-placeholder="Type your keyword here"
 id="my-multi4"<br/>
 class="sc-multiselect"<br/>
 multiple="multiple"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A single select with default item selected
 
@@ -195,7 +195,7 @@ sc-select2 (scania angular-select2 directive)
 
 id="my-single3"<br/>
 class="sc-select"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## A localized single select with language="sv"
 
@@ -215,7 +215,7 @@ ng-model (the selected item)<br/>
 data-value (the value specified in ng-options 'track by'  in this case data-value="id") <br/>
  id="my-single4"<br/>
 class="sc-select"<br/>
-sc-select2 (scania angular-select2 directive)
+sc-select2 (scania-angular-select2 directive)
 
 ## Single select with a display template and a result template
 
@@ -236,7 +236,7 @@ sc-select2 (scania angular-select2 directive)
  data-template-result (the formater function)<br/>
  id="my-single2"<br/>
  class="sc-select"<br/>
- sc-select2 (scania angular-select2 directive)
+ sc-select2 (scania-angular-select2 directive)
 
 ##  Single select with attribute data-minimum-results-for-search=10
 
@@ -255,7 +255,7 @@ sc-select2 (scania angular-select2 directive)
 data-minimum-results-for-search (the search is shown for data sets with size greather than 9).<br/>
 id="my-single2"<br/>
 class="sc-select"<br/>
- sc-select2 (scania angular-select2 directive)
+ sc-select2 (scania-angular-select2 directive)
 
 
 ##   Single select with a custom css class
@@ -275,7 +275,7 @@ class="sc-select"<br/>
 data-container-css-class (custom css class).<br/>
 id="my-single2"<br/>
 class="sc-select"<br/>
- sc-select2 (scania angular-select2 directive)
+ sc-select2 (scania-angular-select2 directive)
 
 ## Single select with a custom css class
 
@@ -294,4 +294,4 @@ class="sc-select"<br/>
  data-dropdown-css-class (custom css class).<br/>
  id="my-single2"<br/>
  class="sc-select"<br/>
- sc-select2 (scania angular-select2 directive)
+ sc-select2 (scania-angular-select2 directive)
