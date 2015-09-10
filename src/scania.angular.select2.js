@@ -30,41 +30,43 @@
                 options.formatSelection = $scope.templateSelection || $.fn.select2.defaults.formatSelection;
                 options.formatResult = $scope.templateResult || $.fn.select2.defaults.formatResult;
 
-                if ($attr.multiple) {
-                    var multiselect = $('select.sc-multiselect[id="' + $attr.id + '"]');
-                    multiselect.select2(options);
-                    $timeout(function () {
-                        var selectedItems = $scope.ngModel;
-                        if (selectedItems) {
-                            if(selectedItems.then && typeof selectedItems.then === 'function'){
-                                selectedItems.then(function (response) {
-                                    multiselect.val(_.pluck(response.data, options.value)).trigger('change');
-                                });
-                            }
-                            if(_.isArray(selectedItems)){
-                                multiselect.val(_.pluck(selectedItems, options.value)).trigger('change');
-                            }
+                var selectorName = $attr.multiple ? 'multiselect' : 'select';
+                var select = $('select.sc-' + selectorName + '[id="' + $attr.id + '"]');
+                select.select2(options);
 
-                        }
+                $timeout(function () {
+                    if (!$scope.ngModel) return;
+
+                    //True for both single and multiselect
+                    if ($scope.ngModel.then && typeof $scope.ngModel.then === 'function') {
+                        $scope.ngModel.then(function (response) {
+                            //Multi select can have 1 or several default selected options,use each to initialize the select
+                            //Single select has 1 default selected option, no iteration is needed to initialize the select
+                            var selectedItems = $attr.multiple ? response.data : new Array(response.data);
+                            populatePreselectedOptions(select, selectedItems);
+                        });
+                    }
+                    else {
+                        if (!_.isArray($scope.ngModel) && !_.isObject($scope.ngModel)) throw "" + $scope.ngModel + " in " + $attr.id + " is not an object nor an array. Select2 must bind to an object or an array.";
+                        var selectedItems = _.isArray($scope.ngModel) ? $scope.ngModel : new Array($scope.ngModel);
+                        populatePreselectedOptions(select, selectedItems);
+                    }
+
+                });
+
+                options.placeholderOption = $attr.multiple ? '' : 'first';
+
+                function populatePreselectedOptions(scSelect, selectedItems) {
+                    var selectedOptions = [];
+                    _.each(selectedItems, function (selectedItem) {
+                        var selectedId = selectedItem[options.value];
+                        var selectedOption = _.find(scSelect[0], function (option) {
+                            return selectedId == option.value;
+                        });
+                        selectedOptions.push({id: selectedId, text: selectedOption.label});
                     });
-                    options.placeholderOption = '';
-                } else {
-                    var select = $('select.sc-select[id="' + $attr.id + '"]');
-                    select.select2(options);
-                    $timeout(function () {
-                        var selectedItem = $scope.ngModel;
-                        if (selectedItem) {
-                            if(selectedItem.then && typeof selectedItem.then === 'function'){
-                                selectedItem.then(function (response) {
-                                    select.val(response.data[options.value]).trigger('change');
-                                });
-                            }
-                            if(_.isObject(selectedItem)){
-                                select.val(selectedItem[options.value]).trigger('change');
-                            }
-                        }
-                    });
-                    options.placeholderOption = 'first';
+                    if (selectedItems.length == 1) selectedOptions = selectedOptions.pop();
+                    scSelect.select2('data', selectedOptions);
                 }
             }
         };
@@ -73,6 +75,7 @@
             return str.indexOf(target) === 0;
         }
     }
+
 
     /**
      * @ngdoc module

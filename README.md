@@ -12,6 +12,7 @@ native HTML select and option tags, infinite scrolling, and many other highly us
 ##Requirements
 
 <a href="https://github.com/ivaynberg/select2">Select2 V3.5.2</a><br/>
+<a href="https://github.com/t0m/select2-bootstrap-css/tree/bootstrap3">select2-bootstrap-css V1.4.6</a><br/>
 <a href="https://github.com/jashkenas/underscore">Underscore</a><br/>
 <a href="http://jquery.com/">JQuery</a><br/>
 
@@ -39,7 +40,7 @@ The following attributes are required on a select tag <br/>
   If you are using bootstrap you will need the less file so go ahead and link scania.angular.select2.less together with select2.css
 
     <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
-    <link rel="stylesheet" href="bower_components/scania-angular-select2/less/scania.angular.select2.less"/>
+    <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.min.css"/>
 
  Don't forget to copy the following images to your app root.
 
