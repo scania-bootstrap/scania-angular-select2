@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "select2": "3.5.2",
-    "select2-bootstrap.css": "1.4.6"
+    "select2-bootstrap-css": "1.4.6"
   },
   "devDependencies": {
     "select2": "3.5.2",
     "underscore": "~1.7.0",
-    "select2-bootstrap.css": "1.4.6"
+    "select2-bootstrap-css": "1.4.6"
   },
   "resolutions": {
     "select2": "3.5.2"
