@@ -30,10 +30,11 @@
                 options.formatSelection = $scope.templateSelection || $.fn.select2.defaults.formatSelection;
                 options.formatResult = $scope.templateResult || $.fn.select2.defaults.formatResult;
 
-                var selectorName = $attr.multiple ? 'multiselect' : 'select';
-                var select = $('select.sc-' + selectorName + '[id="' + $attr.id + '"]');
+                var selectorName = $attr.multiple ? 'multiselect' : 'select',
+                    select = {};
 
                 $timeout(function () {
+                    select = $('select.sc-' + selectorName + '[id="' + $attr.id + '"]');
                     select.select2(options);
 
                     if (!$scope.ngModel) return;
@@ -48,7 +49,7 @@
                         });
                     }
                     else {
-                        if (!_.isArray($scope.ngModel) && !_.isObject($scope.ngModel)) throw "" + $scope.ngModel + " in " + $attr.id + " is not an object nor an array. Select2 must bind to an object or an array.";
+                        if (!_.isArray($scope.ngModel) && !_.isObject($scope.ngModel)) return;
                         var selectedItems = _.isArray($scope.ngModel) ? $scope.ngModel : new Array($scope.ngModel);
                         populatePreselectedOptions(select, selectedItems);
                     }
@@ -60,11 +61,16 @@
                 function populatePreselectedOptions(scSelect, selectedItems) {
                     var selectedOptions = [];
                     _.each(selectedItems, function (selectedItem) {
-                        var selectedId = selectedItem[options.value];
+                        var selectedId = selectedItem[key];
                         var selectedOption = _.find(scSelect[0], function (option) {
                             return selectedId == option.value;
                         });
+                        if(!selectedOption) {
+                            console.error("Data-value for " + scSelect[0].id +" must have the same value as its track by.");
+                            return;
+                        }
                         selectedOptions.push({id: selectedId, text: selectedOption.label});
+
                     });
                     if (selectedItems.length == 1) selectedOptions = selectedOptions.pop();
                     scSelect.select2('data', selectedOptions);
