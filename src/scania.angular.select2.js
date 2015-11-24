@@ -17,7 +17,8 @@
             scope: {
                 ngModel: '=',
                 templateSelection: '=',
-                templateResult: '='
+                templateResult: '=',
+                matcher: '='
             },
             link: function ($scope, element, $attr) {
                 if ($attr.language) {
@@ -29,14 +30,22 @@
                 });
                 options.formatSelection = $scope.templateSelection || $.fn.select2.defaults.formatSelection;
                 options.formatResult = $scope.templateResult || $.fn.select2.defaults.formatResult;
-
+                options.matcher = $scope.matcher || $.fn.select2.defaults.matcher;
                 var selectorName = $attr.multiple ? 'multiselect' : 'select',
                     select = {};
 
                 $timeout(function () {
                     select = $('select.sc-' + selectorName + '[id="' + $attr.id + '"]');
                     select.select2(options);
+                    updateSelectedItemsOnDisplay();
 
+                    $scope.$watch( 'ngModel', function() {
+                        updateSelectedItemsOnDisplay();
+                    });
+                });
+
+                // Access ngModel, $attr.multiple, select, options.value,
+                function updateSelectedItemsOnDisplay() {
                     if (!$scope.ngModel) return;
 
                     //True for both single and multiselect
@@ -45,38 +54,37 @@
                             //Multi select can have 1 or several default selected options,use each to initialize the select
                             //Single select has 1 default selected option, no iteration is needed to initialize the select
                             var selectedItems = $attr.multiple ? response.data : new Array(response.data);
-                            populatePreselectedOptions(select, selectedItems);
+                            populatePreselectedOptions(select, selectedItems, options.value);
                         });
                     }
                     else {
                         if (!_.isArray($scope.ngModel) && !_.isObject($scope.ngModel)) return;
                         var selectedItems = _.isArray($scope.ngModel) ? $scope.ngModel : new Array($scope.ngModel);
-                        populatePreselectedOptions(select, selectedItems);
+                        populatePreselectedOptions(select, selectedItems, options.value);
                     }
+                };
 
-                });
-
-                options.placeholderOption = $attr.multiple ? '' : 'first';
-
-                function populatePreselectedOptions(scSelect, selectedItems) {
-                    var selectedOptions = [];
-                    _.each(selectedItems, function (selectedItem) {
-                        var selectedId = selectedItem[key];
-                        var selectedOption = _.find(scSelect[0], function (option) {
-                            return selectedId == option.value;
-                        });
-                        if(!selectedOption) {
-                            console.error("Data-value for " + scSelect[0].id +" must have the same value as its track by.");
-                            return;
-                        }
-                        selectedOptions.push({id: selectedId, text: selectedOption.label});
-
-                    });
-                    if (selectedItems.length == 1) selectedOptions = selectedOptions.pop();
-                    scSelect.select2('data', selectedOptions);
-                }
             }
         };
+
+        function populatePreselectedOptions(scSelect, selectedItems, key) {
+            //throw "Data-value for " + scSelect[0].id +" must have the same value as its track by.";
+            var selectedOptions = [];
+            _.each(selectedItems, function (selectedItem) {
+                var selectedId = selectedItem[key];
+                var selectedOption = _.find(scSelect[0], function (option) {
+                    return selectedId == option.value;
+                });
+                if(!selectedOption) {
+                    console.error("Data-value for " + scSelect[0].id +" must have the same value as its track by.");
+                    return;
+                }
+                selectedOptions.push({id: selectedId, text: selectedOption.label});
+
+            });
+            if (selectedItems.length == 1) selectedOptions = selectedOptions.pop();
+            scSelect.select2('data', selectedOptions);
+        }
 
         function startsWith(str, target) {
             return str.indexOf(target) === 0;
