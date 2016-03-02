@@ -34,7 +34,8 @@
                 options.minimumResultsForSearch = (options.minimumResultsForSearch > 10) ? options.minimumResultsForSearch : 10;
 
                 var selectorName = $attr.multiple ? 'multiselect' : 'select',
-                    select = {};
+                    select = {},
+                    events = 'input keyup';
 
                 $timeout(function () {
                     select = $('select.sc-' + selectorName + '[id="' + $attr.id + '"]');
