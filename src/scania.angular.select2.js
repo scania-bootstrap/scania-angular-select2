@@ -41,9 +41,10 @@
                     select.select2(options);
                     updateSelectedItemsOnDisplay();
 
-                    $scope.$watch( 'ngModel', function() {
+                    $scope.$watch('ngModel', function () {
                         updateSelectedItemsOnDisplay();
                     });
+                    registerSearchInputEvents();
                 });
 
                 // Access ngModel, $attr.multiple, select, options.value,
@@ -64,7 +65,16 @@
                         var selectedItems = _.isArray($scope.ngModel) ? $scope.ngModel : new Array($scope.ngModel);
                         populatePreselectedOptions(select, selectedItems, options.value);
                     }
-                };
+                }
+
+                function registerSearchInputEvents() {
+                    $('.select2-input').bind(events, function (event) {
+                        var minimumInputLength = (options.minimumInputLength) ? options.minimumInputLength : 3;
+                        if (event.currentTarget.value.length >= minimumInputLength) {
+                            $scope.$emit('select.search-input', event.currentTarget.value);
+                        }
+                    });
+                }
 
             }
         };
@@ -77,8 +87,8 @@
                 var selectedOption = _.find(scSelect[0], function (option) {
                     return selectedId == option.value;
                 });
-                if(!selectedOption) {
-                    console.error("Data-value for " + scSelect[0].id +" must have the same value as its track by.");
+                if (!selectedOption) {
+                    console.error("Data-value for " + scSelect[0].id + " must have the same value as its track by.");
                     return;
                 }
                 selectedOptions.push({id: selectedId, text: selectedOption.label});
