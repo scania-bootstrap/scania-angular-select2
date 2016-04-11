@@ -1,6 +1,6 @@
 {
   "name": "scania-angular-select2",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "AngularJS directive for Select2. A selection box with support for searching, tagging, ng-model, ng-repeat, native HTML select and option tags",
   "main": [
     "src/scania.angular.select2.js",
