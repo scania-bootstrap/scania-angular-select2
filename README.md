@@ -56,243 +56,61 @@ A complete example can be found <a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9
 
 # Examples
 
-## A simple multiselect
+## Single select with Auto Tokenization
 
-     <select id="my-multi1" class="sc-multiselect" style="width: 200px" multiple="multiple"
-         data-placeholder="Select Group"
-         sc-select2>
-         <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
-            {{item.name}}
-         </option>
-     </select>
+        <input type="text" id="single-select-tagging" style="width: 100%"
+               data-placeholder="Type to add a tag"
+               data-create-search-choice="vm.createSearchChoice"
+               data-item-id="id"
+               data-label="name"
+               data="{{vm.items}}"
+               ng-model="vm.selectedItemForSingleTokkenization"
+               sc-input-select/>
 
-### Require attributes
-
-id="my-multi1"<br/>
-class="sc-multiselect"<br/>
-multiple="multiple"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A simple multiselect with attribute data-close-on-select="false".
-
-    <select id="my-multi2" class="sc-multiselect" style="width: 200px" multiple="multiple"
-        data-placeholder="Select Group"
-        data-close-on-select="false"
-        sc-select2>
-        <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
-            {{item.name}}
-        </option>
-    </select>
-
-
-### Require attributes
-
-id="my-multi2"<br/>
-class="sc-multiselect"<br/>
-multiple="multiple"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A single select with attributes
-
- data-allow-clear="true"
- data-minimum-results-for-search="10" (the search is shown for data sets with size > 9)
-
-    <select id="my-single1" class="sc-select" style="width: 200px"
-        data-placeholder="Select Group"
-        data-allow-clear="true"
-         data-minimum-results-for-search="10"
-        sc-select2>
-        <option ng-bind="options.placeholder"></option>
-        <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
-            {{item.name}}
-        </option>
-    </select>
-
-
-### Require attributes
-
-id="my-single1"<br/>
-class="sc-select"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A single select with disabled option
-
-    <select id="my-single2" class="sc-select" style="width: 200px" disabled="true"
-        sc-select2>
-        <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
-            {{item.name}}
-        </option>
-    </select>
-
-### Require attributes
-
-id="my-single2"<br/>
-class="sc-select"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## Multiselect with ng-change event listener and default selection
+## Single select with default item selected
 
      <select ng-options="item as item.name for item in vm.items track by item.id"
-         ng-change="vm.selctionChanged()"
-         ng-model="vm.selectedItems"
-          data-value="id"
-         id="my-multi3" class="sc-multiselect" style="width: 200px"
-         multiple="multiple"
-         data-placeholder="Select Group"
-         sc-select2>
-     </select>
-    <span class="text-success" ng-bind="message"></span>
-
-
-### Require attributes
-
-ng-options<br/>
-ng-change<br/>
-ng-model (the selected list)<br/>
-data-value (the value specified in ng-options 'track by' in this case data-value="id")<br/>
-id="my-multi3"<br/>
-class="sc-multiselect"<br/>
-multiple="multiple"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A simple multiselect Whit attributes
-
-data-maximum-selection-size="1"
-data-minimum-input-length="3"
-data-search-input-placeholder="Type your keyword here"
-
-
-        <select id="my-multi4" class="sc-multiselect" multiple="multiple"
-            data-placeholder="Select Group"
-            data-maximum-selection-size="1"
-            data-minimum-input-length="3"
-            data-search-input-placeholder="Type your keyword here"
-            sc-select2>
-            <option ng-repeat="item in vm.items" ng-model="item">
-                {{item.name}}
-            </option>
-        </select>
-
-
-### Require attributes
-
-id="my-multi4"<br/>
-class="sc-multiselect"<br/>
-multiple="multiple"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A single select with default item selected
-
-     <select ng-options="item as item.name for item in vm.items track by item.id"
-          id="my-single3" class="sc-select" style="width: 200px"
-          data-placeholder="Select Group"
-          ng-model="vm.selectedItem"
-          data-value="id"
-          sc-select2>
-
+             id="my-single3" style="width: 100%"
+             data-placeholder="Select Item"
+             ng-model="vm.selectedItem"
+             data-value="id"
+             sc-single-select>
      </select>
 
-### Require attributes
+ ## Single select with a custom container css class
 
-id="my-single3"<br/>
-class="sc-select"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## A localized single select with language="sv"
-
-     <select id="my-single4" class="sc-select" style="width: 200px" language="sv"
-        data-placeholder="Select Group"
-        sc-select2>
-        <option ng-bind="options.placeholder"></option>
-        <option ng-repeat="item in vm.items" ng-model="item">
-            {{item.name}}
-        </option>
-     </select>
-
-### Require attributes
-
-ng-options<br/>
-ng-model (the selected item)<br/>
-data-value (the value specified in ng-options 'track by'  in this case data-value="id") <br/>
- id="my-single4"<br/>
-class="sc-select"<br/>
-sc-select2 (scania-angular-select2 directive)
-
-## Single select with a display template and a result template
-
-    <select id="my-single5" class="sc-select" style="width: 200px"
-        data-placeholder="With templates"
-        data-template-selection="vm.displayTemplate"
-        data-template-result="vm.resultTemplate"
-        sc-select2>
+    <select id="my-single7" style="width: 100%"
+            data-placeholder="With custom container css"
+            data-container-css-class="container-css-class"
+            sc-single-select>
         <option ng-bind="options.placeholder"></option>
         <option ng-repeat="item in vm.items" ng-model="item">
             {{item.name}}
         </option>
     </select>
 
-###  Require attributes
+## Simple Multiselect
 
- data-template-selection (the formater function)<br/>
- data-template-result (the formater function)<br/>
- id="my-single2"<br/>
- class="sc-select"<br/>
- sc-select2 (scania-angular-select2 directive)
-
-##  Single select with attribute data-minimum-results-for-search=10
-
-    <select id="my-single6" class="sc-select" style="width: 200px"
-        data-placeholder="With min length"
-        data-minimum-results-for-search="10"
-        sc-select2>
-        <option ng-bind="options.placeholder"></option>
-        <option ng-repeat="item in vm.items" ng-model="item">
-               {{item.name}}
+    <select id="my-multi1" style="width: 100%" multiple="multiple"
+            data-placeholder="Select Items"
+            sc-multi-select>
+        <option ng-repeat="item in vm.items" ng-selected="item.selected" ng-model="item">
+            {{item.name}}
         </option>
     </select>
 
-###  Require attributes
-
-data-minimum-results-for-search (the search is shown for data sets with size greather than 9).<br/>
-id="my-single2"<br/>
-class="sc-select"<br/>
- sc-select2 (scania-angular-select2 directive)
 
 
-##   Single select with a custom css class
 
-    <select id="my-single6" class="sc-select" style="width: 200px"
-        data-placeholder="With custom container css"
-        data-container-css-class="container-css-class"
-        sc-select2>
-        <option ng-bind="options.placeholder"></option>
-        <option ng-repeat="item in vm.items" ng-model="item">
-               {{item.name}}
-        </option>
+## Multiselect with <code>ng-change</code> event listener and default selection
+
+    <select ng-options="item as item.name for item in vm.items track by item.id"
+        ng-change="vm.selectionChanged()"
+        ng-model="vm.selectedItems"
+        data-value="id"
+        id="my-multi3" style="width: 100%"
+        multiple="multiple"
+        data-placeholder="With ng-chnage"
+        data-container-css-class="select-all"
+        sc-multi-select>
     </select>
-
-###  Require attributes
-
-data-container-css-class (custom css class).<br/>
-id="my-single2"<br/>
-class="sc-select"<br/>
- sc-select2 (scania-angular-select2 directive)
-
-## Single select with a custom css class
-
-     <select id="my-single6" class="sc-select" style="width: 200px"
-          data-placeholder="With  custom dropdown css"
-          data-dropdown-css-class="dropdown-css-class"
-         sc-select2>
-         <option ng-bind="options.placeholder"></option>
-         <option ng-repeat="item in vm.items" ng-model="item">
-                {{item.name}}
-         </option>
-     </select>
-
-###  Require attributes
-
- data-dropdown-css-class (custom css class).<br/>
- id="my-single2"<br/>
- class="sc-select"<br/>
- sc-select2 (scania-angular-select2 directive)
