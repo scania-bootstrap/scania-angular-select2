@@ -351,7 +351,7 @@
                     inputOptionsLabelProperty = '';
 
                 $timeout(function () {
-                    $('.select2-search').prepend('<i class="scania-icon-search sm"></i>');
+
                     options.data = {results: JSON.parse($attr.data), text: $attr.label};
                     options.createSearchChoice = $scope.createSearchChoice;
                     options.tokenSeparators = $scope.tokenSeparators || tokenSeparators;
