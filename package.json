@@ -1,0 +1,19 @@
+{
+  "name": "scania-angular-select2",
+  "version": "1.0.0",
+  "description": "AngularJS directive for <a href=\"https://github.com/ivaynberg/select2\">Select2</a><br/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyo2/scania-angular-select2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuyo2/scania-angular-select2/issues"
+  },
+  "homepage": "https://github.com/yuyo2/scania-angular-select2#readme"
+}
