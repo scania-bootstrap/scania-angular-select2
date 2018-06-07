@@ -1,6 +1,7 @@
 {
   "name": "scania-angular-select2",
   "license": "MIT",
+  "version": "1.0.0",
   "dependencies": {
     "corporate-ui": "^2.4.4"
   },
