@@ -143,7 +143,7 @@
                 return selectedId == option.value;
             });
             if (!selectedOption) {
-                console.error("Data-value for " + scSelect[0].id + " must have the same value as its track by.");
+                console.error("Data-value for " + scSelect[0] + " must have the same value as its track by.");
                 return;
             }
             selectedOptions.push({id: selectedId, text: selectedOption.label});
@@ -195,6 +195,7 @@
             $scope.watchFunction('ngModel', function () {
                 updateSelectedItemsOnDisplay($scope, select, options);
             });
+            $($(select)[0].previousSibling).find('div.select2-search').prepend('<i class="scania-icon-search sm"></i>');
             registerEvents($scope, scSelect, options);
         });
 

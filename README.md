@@ -10,17 +10,44 @@ native HTML select and option tags, infinite scrolling, and many other highly us
 # Getting Started
 
 ##Requirements
-
+<a href="https://scania.github.io/corporate-ui-docs/">Scania Corporate UI</a><br/>
 <a href="https://github.com/ivaynberg/select2">Select2 V3.5.2</a><br/>
-<a href="https://github.com/t0m/select2-bootstrap-css/tree/bootstrap3">select2-bootstrap-css V1.4.6</a><br/>
 <a href="https://github.com/jashkenas/underscore">Underscore</a><br/>
 <a href="http://jquery.com/">JQuery</a><br/>
 
 ## Installation
 
      bower install scania-angular-select2
+     npm install
 
 #Usage
+
+Add the following script to your index.html file and you are good to go :<br/>
+
+
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="bower_components/scania-angular-ui/css/corporate-ui-sc-select.css">
+    <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
+    <link href="bower_components/scania-angular-ui/css/corporate-ui-sc-select.css">
+    <link rel="stylesheet" href="node_modules/corporate-ui/dist/css/corporate-ui.css">
+
+    <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/select2/select2.js"></script>
+     <script src="bower_components/scania-angular-ui/src/scania-angular-select2.js"></script>
+
+
+Don't forget to copy the following images to your app root.
+
+         select2.png
+         select2x2.png
+         select2-spinner.gif
+
+Next inject the directive into your app
+
+    angular.module('yourapp', ['scania.angular.select2']);
+
 
 ##Required Atributes
 
@@ -30,27 +57,7 @@ The following attributes are required on a select tag <br/>
            class="sc-multiselect"<br/>
            sc-select2 (scania-angular-select2 directive)
 
-  Add the following script to your index.html file and you are good to go :<br/>
 
-<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
-<script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/select2/select2.js"></script>
-    <script src="bower_components/scania-angular-select2/src/scania.angular.select2.js"></script>
-
-  If you are using bootstrap you will need the less file so go ahead and link scania.angular.select2.less together with select2.css
-
-    <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
-    <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.min.css"/>
-
- Don't forget to copy the following images to your app root.
-
-    select2.png
-    select2x2.png
-    select2-spinner.gif
-
- Next inject the directive into your app
-
-    angular.module('yourapp', ['scania.angular.select2']);
 
 A complete example can be found <a href="http://embed.plnkr.co/L3YYgq7TEM2mBG9s9we1/preview">here</a>
 
