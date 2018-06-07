@@ -17,25 +17,33 @@ native HTML select and option tags, infinite scrolling, and many other highly us
 
 ## Installation
 
+     npm install scania-angular-select2
+
+This will install `scania-angular-select2` and all dependencies including `corporate-ui` in your `node_modules` directory
+
+OR
      bower install scania-angular-select2
-     npm install
+     npm install corporate-ui
+
+This will install `scania-angular-select2` and all dependencies execpt `corporate-ui` in your `bower_components` directory
+and `corporate-ui` in your `node_modules` directory
 
 #Usage
 
 Add the following script to your index.html file and you are good to go :<br/>
 
+    ROOT_DIR = `bower_components` or `node_modules`
 
-
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link href="bower_components/scania-angular-ui/css/corporate-ui-sc-select.css">
-    <link rel="stylesheet" href="bower_components/select2/select2.css"/><br/>
-    <link href="bower_components/scania-angular-ui/css/corporate-ui-sc-select.css">
+    <link rel="stylesheet" href="<ROOT_DIR>/bootstrap/dist/css/bootstrap.min.css">
+    <link href="<ROOT_DIR>/scania-angular-select2/css/corporate-ui-sc-select.css">
+    <link rel="stylesheet" href="<ROOT_DIR>/select2/select2.css"/><br/>
+    <link href="<ROOT_DIR>/scania-angular-select2/css/corporate-ui-sc-select.css">
     <link rel="stylesheet" href="node_modules/corporate-ui/dist/css/corporate-ui.css">
 
-    <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/select2/select2.js"></script>
-     <script src="bower_components/scania-angular-ui/src/scania-angular-select2.js"></script>
+    <script type="text/javascript" src="<ROOT_DIR>/jquery/jquery.js"></script>
+    <script type="text/javascript" src="<ROOT_DIR>/underscore/underscore.js"></script>
+    <script src="<ROOT_DIR>/select2/select2.js"></script>
+    <script src="<ROOT_DIR>/scania-angular-select2/src/scania-angular-select2.js"></script>
 
 
 Don't forget to copy the following images to your app root.

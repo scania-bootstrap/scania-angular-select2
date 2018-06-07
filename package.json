@@ -8,5 +8,21 @@
   "scripts": {
     "preinstall": "npm install corporate-ui",
     "install": "bower install scania-angular-select2"
-  }
+  },
+  "authors": [
+    "Scania",
+    "Mohammed Ayowa <mohammed.ayowa@scania.com> (mohammed.ayowa@scania.com)"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scania-bootstrap/scania-angular-select2.git"
+  },
+  "homepage": "https://github.com/scania-bootstrap/scania-angular-select2"
 }
