@@ -3,5 +3,9 @@
   "license": "MIT",
   "dependencies": {
     "corporate-ui": "^2.4.4"
+  },
+  "scripts": {
+    "preinstall": "npm install corporate-ui",
+    "install": "bower install scania-angular-select2"
   }
 }
